@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Portfolio | Velumo Work</title>
+  <meta name="description" content="Explore Velumo portfolio across websites, AI products, automation systems, and branding transformations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--color-bg:#0A0A0A;--color-surface:#111;--color-border:#1E1E1E;--color-accent:#7B5EA7;--color-accent2:#00D4AA;--color-text:#F0EEE8;--color-muted:#6B6B6B}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--color-bg);color:var(--color-text);font-family:Inter,sans-serif;line-height:1.7}
+    .container{width:min(1280px,100%);margin:0 auto;padding:0 clamp(20px,5vw,80px)}
+    .section{padding:clamp(80px,12vw,160px) 0;border-top:1px solid var(--color-border)}
+    .title{font:800 clamp(36px,5vw,72px)/1 Syne,sans-serif;letter-spacing:-.03em}
+    .lead{max-width:62ch;margin-top:14px;color:color-mix(in srgb,var(--color-text) 84%,var(--color-muted))}
+    .site-nav{position:sticky;top:0;background:rgba(10,10,10,.85);backdrop-filter:blur(20px);z-index:10;border-bottom:1px solid var(--color-border)}
+    .nav-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:76px}
+    .wordmark{font:800 28px Syne,sans-serif;color:#fff;text-decoration:none}
+    .nav-links{display:flex;list-style:none;gap:24px}
+    .nav-links a{color:var(--color-text);text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+    .btn{justify-self:end;border:1px solid var(--color-accent);background:var(--color-accent);color:#fff;padding:11px 16px;border-radius:8px;text-decoration:none;font-size:13px;text-transform:uppercase}
+    .hero{padding:clamp(100px,16vw,160px) 0 60px}
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0}
+    .filter{background:transparent;border:1px solid var(--color-border);color:var(--color-text);padding:10px 14px;border-radius:7px}
+    .filter.active{background:var(--color-accent);border-color:var(--color-accent)}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .card{border:1px solid var(--color-border);background:var(--color-surface);overflow:hidden;position:relative;text-decoration:none;color:inherit;display:block;will-change:transform,opacity}
+    .w6{grid-column:span 6}.w4{grid-column:span 4}.w8{grid-column:span 8}
+    .h1 .media{height:250px}.h2 .media{height:340px}
+    .media{
+      position:relative;overflow:hidden;
+      background:
+        radial-gradient(circle at 20% 12%, rgba(123,94,167,.42), transparent 46%),
+        radial-gradient(circle at 82% 90%, rgba(0,212,170,.28), transparent 52%),
+        linear-gradient(145deg, #141420 4%, #101018 55%, #0b0b0f 100%);
+    }
+    .media svg{width:100%;height:100%;stroke:rgba(240,238,232,.74);fill:none;stroke-width:1}
+    .chip{position:absolute;top:12px;left:12px;padding:6px 9px;border:1px solid var(--color-border);font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:rgba(10,10,10,.7)}
+    .view{position:absolute;right:14px;bottom:14px;padding:8px 10px;border:1px solid var(--color-border);font-size:11px;background:rgba(10,10,10,.75);letter-spacing:.1em;text-transform:uppercase}
+    .info{padding:20px}
+    .tag{font-size:12px;color:var(--color-accent2);text-transform:uppercase;letter-spacing:.12em}
+    .name{font:700 clamp(22px,2.6vw,32px)/1.1 Syne,sans-serif;margin:8px 0}
+    .desc{color:color-mix(in srgb,var(--color-text) 84%,var(--color-muted))}
+    .site-footer{border-top:1px solid var(--color-border);padding:50px 0 18px;margin-top:70px}
+    .f{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:16px}
+    .f a,.f p{color:var(--color-muted);text-decoration:none;display:block;margin-bottom:6px}
+    .b{margin-top:26px;border-top:1px solid var(--color-border);padding-top:10px;color:var(--color-muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+    @media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}.w6,.w4,.w8{grid-column:span 1}.f{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){.nav-links,.btn{display:none}.grid,.f{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a class="wordmark n" href="index.html"><span style="display:block;font-size:8px;letter-spacing:.18em;font-family:Inter,sans-serif;font-weight:600;color:#6B6B6B;text-transform:uppercase;line-height:1;margin-bottom:3px">THE JUNIOR ENGINEER'S</span>Velumo</a>
+      <ul class="nav-links">
+        <li><a class="n" href="index.html">Home</a></li><li><a class="n" href="about.html">About</a></li><li><a class="n" href="services.html">Services</a></li><li><a class="n" href="portfolio.html">Work</a></li><li><a class="n" href="pricing.html">Pricing</a></li><li><a class="n" href="blog.html">Blog</a></li><li><a class="n" href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn n">Start a Project →</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <h1 class="title reveal">Work That Speaks<br>Louder Than Words.</h1>
+      <p class="lead reveal">Every card below includes a custom visual mockup built in-page, so the portfolio looks finished and premium without broken image links.</p>
+      <div class="filters reveal">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="web">Websites</button>
+        <button class="filter" data-filter="ai">AI</button>
+        <button class="filter" data-filter="automation">Automation</button>
+        <button class="filter" data-filter="branding">Branding</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="grid" id="grid">
+        <a class="card w6 h2 item reveal" data-cat="web" href="case-studies.html#stylenest">
+          <div class="media">
+            <span class="chip">E-commerce UI</span>
+            <svg viewBox="0 0 600 340">
+              <rect x="38" y="30" width="524" height="280"></rect>
+              <line x1="38" y1="72" x2="562" y2="72"></line>
+              <rect x="62" y="92" width="190" height="190"></rect>
+              <rect x="278" y="92" width="254" height="24"></rect>
+              <rect x="278" y="126" width="214" height="10"></rect>
+              <rect x="278" y="146" width="240" height="10"></rect>
+              <rect x="278" y="166" width="168" height="10"></rect>
+              <rect x="278" y="206" width="102" height="28"></rect>
+            </svg>
+            <span class="view">Case Study →</span>
+          </div>
+          <div class="info"><p class="tag">Websites</p><h2 class="name">StyleNest E-commerce</h2><p class="desc">A conversion-centric storefront with premium merchandising and faster checkout flow.</p></div>
+        </a>
+
+        <a class="card w6 h1 item reveal" data-cat="ai" href="case-studies.html#medisync">
+          <div class="media">
+            <span class="chip">AI Dashboard</span>
+            <svg viewBox="0 0 600 260">
+              <rect x="34" y="24" width="532" height="212"></rect>
+              <line x1="34" y1="58" x2="566" y2="58"></line>
+              <circle cx="112" cy="146" r="54"></circle>
+              <polyline points="74,156 100,136 124,144 148,116" />
+              <rect x="196" y="92" width="336" height="18"></rect>
+              <rect x="196" y="120" width="276" height="10"></rect>
+              <rect x="196" y="138" width="310" height="10"></rect>
+              <rect x="196" y="156" width="218" height="10"></rect>
+              <rect x="196" y="184" width="130" height="24"></rect>
+            </svg>
+            <span class="view">Case Study →</span>
+          </div>
+          <div class="info"><p class="tag">AI</p><h2 class="name">MediSync AI Dashboard</h2><p class="desc">Intelligent scheduling and reporting system for healthcare operations teams.</p></div>
+        </a>
+
+        <a class="card w4 h1 item reveal" data-cat="automation" href="case-studies.html#swiftfreight">
+          <div class="media">
+            <span class="chip">Automation</span>
+            <svg viewBox="0 0 600 260">
+              <rect x="34" y="28" width="532" height="204"></rect>
+              <circle cx="130" cy="130" r="22"></circle>
+              <circle cx="300" cy="78" r="22"></circle>
+              <circle cx="300" cy="182" r="22"></circle>
+              <circle cx="470" cy="130" r="22"></circle>
+              <line x1="152" y1="130" x2="278" y2="78"></line>
+              <line x1="152" y1="130" x2="278" y2="182"></line>
+              <line x1="322" y1="78" x2="448" y2="130"></line>
+              <line x1="322" y1="182" x2="448" y2="130"></line>
+            </svg>
+            <span class="view">Case Study →</span>
+          </div>
+          <div class="info"><p class="tag">Automation</p><h2 class="name">SwiftFreight Logistics</h2><p class="desc">Automated dispatch routes and real-time workflow triggers across fleet operations.</p></div>
+        </a>
+
+        <a class="card w8 h2 item reveal" data-cat="branding" href="case-studies.html#kiran">
+          <div class="media">
+            <span class="chip">Branding System</span>
+            <svg viewBox="0 0 600 340">
+              <rect x="34" y="26" width="532" height="286"></rect>
+              <rect x="64" y="60" width="160" height="220"></rect>
+              <rect x="244" y="60" width="292" height="80"></rect>
+              <rect x="244" y="152" width="132" height="128"></rect>
+              <rect x="384" y="152" width="152" height="128"></rect>
+              <text x="87" y="182" fill="rgba(240,238,232,.78)" stroke="none" font-size="64" font-family="Syne">K</text>
+            </svg>
+            <span class="view">Case Study →</span>
+          </div>
+          <div class="info"><p class="tag">Branding</p><h2 class="name">Kiran Jewellery Branding</h2><p class="desc">Luxury identity refresh with cohesive digital templates and launch assets.</p></div>
+        </a>
+
+        <a class="card w6 h1 item reveal" data-cat="web" href="case-studies.html#payease">
+          <div class="media">
+            <span class="chip">FinTech App</span>
+            <svg viewBox="0 0 600 260">
+              <rect x="220" y="26" width="160" height="208" rx="20"></rect>
+              <rect x="242" y="56" width="116" height="20"></rect>
+              <rect x="242" y="90" width="116" height="56"></rect>
+              <rect x="242" y="154" width="52" height="20"></rect>
+              <rect x="306" y="154" width="52" height="20"></rect>
+              <rect x="242" y="182" width="116" height="20"></rect>
+              <circle cx="300" cy="42" r="4"></circle>
+            </svg>
+            <span class="view">Case Study →</span>
+          </div>
+          <div class="info"><p class="tag">Web/App</p><h2 class="name">PayEase FinTech App</h2><p class="desc">Secure onboarding and transaction UX designed for trust and speed.</p></div>
+        </a>
+
+        <a class="card w6 h2 item reveal" data-cat="web branding" href="case-studies.html#growthpulse">
+          <div class="media">
+            <span class="chip">Growth Site</span>
+            <svg viewBox="0 0 600 340">
+              <rect x="38" y="30" width="524" height="280"></rect>
+              <line x1="38" y1="68" x2="562" y2="68"></line>
+              <rect x="62" y="92" width="220" height="26"></rect>
+              <rect x="62" y="128" width="170" height="12"></rect>
+              <rect x="62" y="148" width="194" height="12"></rect>
+              <polyline points="338,240 378,210 414,220 452,176 486,188 532,142"></polyline>
+              <circle cx="378" cy="210" r="5"></circle>
+              <circle cx="452" cy="176" r="5"></circle>
+            </svg>
+            <span class="view">Case Study →</span>
+          </div>
+          <div class="info"><p class="tag">Website + Branding</p><h2 class="name">GrowthPulse Marketing Site</h2><p class="desc">Bold rebrand and lead-focused architecture that improved pipeline quality.</p></div>
+        </a>
+
+        <!-- ── REAL LIVE PROJECT: ConnX ── -->
+        <a class="card w6 h2 item reveal" data-cat="web" href="case-studies.html#connx">
+          <div class="media">
+            <span class="chip">Networking Platform</span>
+            <svg viewBox="0 0 600 340">
+              <rect x="38" y="30" width="524" height="280"></rect>
+              <line x1="38" y1="72" x2="562" y2="72"></line>
+              <!-- Three profile cards -->
+              <rect x="58" y="96" width="145" height="185" rx="4"></rect>
+              <circle cx="130" cy="150" r="30"></circle>
+              <rect x="78" y="196" width="105" height="10"></rect>
+              <rect x="88" y="216" width="85" height="8"></rect>
+              <rect x="78" y="244" width="105" height="18" rx="3"></rect>
+
+              <rect x="228" y="96" width="145" height="185" rx="4"></rect>
+              <circle cx="300" cy="150" r="30"></circle>
+              <rect x="248" y="196" width="105" height="10"></rect>
+              <rect x="258" y="216" width="85" height="8"></rect>
+              <rect x="248" y="244" width="105" height="18" rx="3"></rect>
+
+              <rect x="398" y="96" width="145" height="185" rx="4"></rect>
+              <circle cx="470" cy="150" r="30"></circle>
+              <rect x="418" y="196" width="105" height="10"></rect>
+              <rect x="428" y="216" width="85" height="8"></rect>
+              <rect x="418" y="244" width="105" height="18" rx="3"></rect>
+              <!-- Connection lines -->
+              <line x1="203" y1="150" x2="228" y2="150" stroke-dasharray="4 3"></line>
+              <line x1="373" y1="150" x2="398" y2="150" stroke-dasharray="4 3"></line>
+            </svg>
+            <span class="view">Case Study →</span>
+          </div>
+          <div class="info"><p class="tag">Networking</p><h2 class="name">ConnX — Talent Network</h2><p class="desc">A platform connecting skilled contributors with clients, enabling meaningful collaborations and community growth.</p></div>
+        </a>
+
+        <!-- ── REAL LIVE PROJECT: AnnouncePro ── -->
+        <a class="card w4 h1 item reveal" data-cat="automation" href="case-studies.html#announcepro">
+          <div class="media">
+            <span class="chip">Desktop App</span>
+            <svg viewBox="0 0 600 260">
+              <!-- App window frame -->
+              <rect x="60" y="20" width="480" height="220" rx="8"></rect>
+              <line x1="60" y1="54" x2="540" y2="54"></line>
+              <circle cx="84" cy="37" r="7"></circle>
+              <circle cx="106" cy="37" r="7"></circle>
+              <circle cx="128" cy="37" r="7"></circle>
+              <!-- Schedule list rows -->
+              <rect x="84" y="74" width="220" height="12"></rect>
+              <rect x="84" y="98" width="180" height="10"></rect>
+              <rect x="84" y="118" width="200" height="10"></rect>
+              <rect x="84" y="138" width="155" height="10"></rect>
+              <!-- Time badges -->
+              <rect x="360" y="71" width="80" height="15" rx="3"></rect>
+              <rect x="360" y="95" width="80" height="13" rx="3"></rect>
+              <rect x="360" y="115" width="80" height="13" rx="3"></rect>
+              <rect x="360" y="135" width="80" height="13" rx="3"></rect>
+              <!-- Audio player bar -->
+              <rect x="84" y="166" width="356" height="4" rx="2"></rect>
+              <circle cx="84" cy="168" r="5"></circle>
+              <!-- Play controls -->
+              <circle cx="270" cy="204" r="18"></circle>
+              <polyline points="263,196 263,212 277,204"></polyline>
+              <rect x="235" y="197" width="6" height="14"></rect>
+              <rect x="245" y="197" width="6" height="14"></rect>
+              <rect x="296" y="197" width="6" height="14"></rect>
+              <rect x="306" y="197" width="6" height="14"></rect>
+            </svg>
+            <span class="view">Case Study →</span>
+          </div>
+          <div class="info"><p class="tag">Automation</p><h2 class="name">AnnouncePro Scheduler</h2><p class="desc">Smart audio announcement scheduler for schools and orgs — offline-first, with real-time monitoring and 15+ features.</p></div>
+        </a>
+
+        <!-- ── REAL LIVE PROJECT: CampusReveal ── -->
+        <a class="card w8 h2 item reveal" data-cat="web" href="case-studies.html#campusreveal">
+          <div class="media">
+            <span class="chip">Campus Web App</span>
+            <svg viewBox="0 0 600 340">
+              <rect x="38" y="30" width="524" height="280"></rect>
+              <line x1="38" y1="72" x2="562" y2="72"></line>
+              <!-- Search bar -->
+              <rect x="148" y="88" width="304" height="26" rx="13"></rect>
+              <circle cx="437" cy="101" r="7"></circle>
+              <!-- Cards row 1 -->
+              <rect x="60" y="130" width="157" height="96" rx="5"></rect>
+              <rect x="60" y="130" width="157" height="50"></rect>
+              <rect x="68" y="188" width="95" height="8"></rect>
+              <rect x="68" y="204" width="65" height="7"></rect>
+
+              <rect x="229" y="130" width="157" height="96" rx="5"></rect>
+              <rect x="229" y="130" width="157" height="50"></rect>
+              <rect x="237" y="188" width="95" height="8"></rect>
+              <rect x="237" y="204" width="65" height="7"></rect>
+
+              <rect x="398" y="130" width="126" height="96" rx="5"></rect>
+              <rect x="398" y="130" width="126" height="50"></rect>
+              <rect x="406" y="188" width="90" height="8"></rect>
+              <rect x="406" y="204" width="60" height="7"></rect>
+              <!-- Tag pills row -->
+              <rect x="60" y="244" width="62" height="16" rx="8"></rect>
+              <rect x="132" y="244" width="72" height="16" rx="8"></rect>
+              <rect x="214" y="244" width="56" height="16" rx="8"></rect>
+              <rect x="280" y="244" width="68" height="16" rx="8"></rect>
+              <rect x="358" y="244" width="80" height="16" rx="8"></rect>
+            </svg>
+            <span class="view">View Live →</span>
+          </div>
+          <div class="info"><p class="tag">Web App</p><h2 class="name">CampusReveal — Discovery Platform</h2><p class="desc">A React-based campus discovery platform helping students explore events, clubs, and opportunities in one place.</p></div>
+        </a>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="f">
+        <div><h4>Velumo<span style="display:block;font-size:8px;letter-spacing:.18em;font-family:Inter,sans-serif;font-weight:600;color:#6B6B6B;text-transform:uppercase;line-height:1;margin-top:3px">THE JUNIOR ENGINEER'S</span></h4><p>Built for ambitious businesses.</p></div>
+        <div><h4>Company</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="blog.html">Blog</a><a href="#">Careers</a></div>
+        <div><h4>Services</h4><a href="services.html">Web Design</a><a href="ai-solutions.html">AI Solutions</a><a href="services.html">Automation</a><a href="services.html">App Dev</a><a href="services.html">Branding</a></div>
+        <div><h4>Contact</h4><a href="mailto:thejuniorengineerss@gmail.com">thejuniorengineerss@gmail.com</a><a href="tel:+919988725089">+91 9988725089</a><p>Ludhiana, India</p></div>
+      </div>
+      <div class="b"><p>© 2025 Velumo. Crafted with precision in India.</p><p>Privacy Policy · Terms · Sitemap</p></div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger,TextPlugin);
+    window.addEventListener("load",()=>{
+      gsap.from(".n",{y:-20,opacity:0,stagger:.08,duration:.6});
+      gsap.utils.toArray(".reveal").forEach(el=>gsap.from(el,{scrollTrigger:{trigger:el,start:"top 85%"},y:50,opacity:0,duration:.9,ease:"power2.out"}));
+    });
+    const buttons=[...document.querySelectorAll(".filter")],items=[...document.querySelectorAll(".item")];
+    buttons.forEach(btn=>btn.onclick=()=>{
+      buttons.forEach(b=>b.classList.remove("active"));btn.classList.add("active");
+      const f=btn.dataset.filter;
+      items.forEach(i=>{
+        const ok=f==="all"||i.dataset.cat.includes(f);
+        if(ok){i.style.display="block";gsap.fromTo(i,{opacity:0,scale:.95},{opacity:1,scale:1,duration:.35});}
+        else{gsap.to(i,{opacity:0,scale:.95,duration:.25,onComplete:()=>i.style.display="none"});}
+      });
+    });
+    document.querySelectorAll(".card").forEach(c=>{
+      const m=c.querySelector(".media");
+      c.addEventListener("mouseenter",()=>gsap.to(m,{scale:1.04,duration:.5,ease:"power3.out"}));
+      c.addEventListener("mouseleave",()=>gsap.to(m,{scale:1,duration:.5,ease:"power3.out"}));
+    });
+    window.addEventListener("beforeunload",()=>{ScrollTrigger.getAll().forEach(t=>t.kill())});
+  </script>
+</body>
+</html>
