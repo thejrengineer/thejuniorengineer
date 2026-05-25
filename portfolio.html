@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -49,17 +49,68 @@
     .f a,.f p{color:var(--color-muted);text-decoration:none;display:block;margin-bottom:6px}
     .b{margin-top:26px;border-top:1px solid var(--color-border);padding-top:10px;color:var(--color-muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
     @media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}.w6,.w4,.w8{grid-column:span 1}.f{grid-template-columns:1fr 1fr}}
-    @media(max-width:768px){.nav-links,.btn{display:none}.grid,.f{grid-template-columns:1fr}}
+    .mobile-toggle, .mobile-menu { display: none; }
+    @media(max-width:768px){
+      .nav-links, .nav-inner .btn{display:none}
+      .grid,.f{grid-template-columns:1fr}
+      .mobile-toggle {
+        display: grid;
+        width: 42px; height: 42px;
+        gap: 5px;
+        align-content: center;
+        justify-items: center;
+        background: transparent;
+        border: 1px solid var(--color-border);
+      }
+      .mobile-toggle span { width: 18px; height: 1px; background: var(--color-text); }
+      .mobile-menu {
+        position: fixed;
+        inset: 0;
+        background: rgba(10,10,10,0.98);
+        z-index: 1200;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        transform: translateX(100%);
+      }
+      .mobile-menu a {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(32px, 8vw, 56px);
+        letter-spacing: -0.03em;
+        color: var(--color-white, #fff);
+        text-decoration: none;
+      }
+    }
   </style>
-</head>
+<link rel="canonical" href="https://www.velumo.services/portfolio.html"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/favicon.svg"><meta property="og:type" content="website"><meta property="og:site_name" content="Velumo"><meta property="og:title" content="Portfolio | Velumo Work"><meta property="og:description" content="Explore Velumo portfolio across websites, AI products, automation systems, and branding transformations."><meta property="og:url" content="https://www.velumo.services/portfolio.html"><meta property="og:image" content="https://www.velumo.services/assets/img/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@velumo"><meta name="twitter:title" content="Portfolio | Velumo Work"><meta name="twitter:description" content="Explore Velumo portfolio across websites, AI products, automation systems, and branding transformations."><meta name="twitter:image" content="https://www.velumo.services/assets/img/og-image.png"></head>
 <body>
   <nav class="site-nav">
     <div class="container nav-inner">
       <a class="wordmark n" href="index.html"><span style="display:block;font-size:8px;letter-spacing:.18em;font-family:Inter,sans-serif;font-weight:600;color:#6B6B6B;text-transform:uppercase;line-height:1;margin-bottom:3px">THE JUNIOR ENGINEER'S</span>Velumo</a>
       <ul class="nav-links">
-        <li><a class="n" href="index.html">Home</a></li><li><a class="n" href="about.html">About</a></li><li><a class="n" href="services.html">Services</a></li><li><a class="n" href="portfolio.html">Work</a></li><li><a class="n" href="pricing.html">Pricing</a></li><li><a class="n" href="blog.html">Blog</a></li><li><a class="n" href="contact.html">Contact</a></li>
+        <li><a class="n" href="index.html">Home</a></li>
+        <li><a class="n" href="about.html">About</a></li>
+        <li><a class="n" href="services.html">Services</a></li>
+        <li><a class="n" href="portfolio.html">Work</a></li>
+        <li><a class="n" href="pricing.html">Pricing</a></li>
+        <li><a class="n" href="blog.html">Blog</a></li>
+        <li><a class="n" href="contact.html">Contact</a></li>
       </ul>
       <a href="contact.html" class="btn n">Start a Project →</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
     </div>
   </nav>
 
@@ -305,9 +356,9 @@
         <div><h4>Velumo<span style="display:block;font-size:8px;letter-spacing:.18em;font-family:Inter,sans-serif;font-weight:600;color:#6B6B6B;text-transform:uppercase;line-height:1;margin-top:3px">THE JUNIOR ENGINEER'S</span></h4><p>Built for ambitious businesses.</p></div>
         <div><h4>Company</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="blog.html">Blog</a><a href="#">Careers</a></div>
         <div><h4>Services</h4><a href="services.html">Web Design</a><a href="ai-solutions.html">AI Solutions</a><a href="services.html">Automation</a><a href="services.html">App Dev</a><a href="services.html">Branding</a></div>
-        <div><h4>Contact</h4><a href="mailto:thejuniorengineerss@gmail.com">thejuniorengineerss@gmail.com</a><a href="tel:+919988725089">+91 9988725089</a><p>Ludhiana, India</p></div>
+        <div><h4>Contact</h4><a href="mailto:contact@velumo.services">contact@velumo.services</a><a href="tel:+919988725089">+91 9988725089</a><p>Ludhiana, India</p></div>
       </div>
-      <div class="b"><p>© 2025 Velumo. Crafted with precision in India.</p><p>Privacy Policy · Terms · Sitemap</p></div>
+      <div class="b"><p>© 2026 Velumo. Crafted with precision in India.</p><p>Privacy Policy · Terms · Sitemap</p></div>
     </div>
   </footer>
 
@@ -335,7 +386,27 @@
       c.addEventListener("mouseenter",()=>gsap.to(m,{scale:1.04,duration:.5,ease:"power3.out"}));
       c.addEventListener("mouseleave",()=>gsap.to(m,{scale:1,duration:.5,ease:"power3.out"}));
     });
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu   = document.getElementById('mobileMenu');
+    mobileToggle.addEventListener('click', () => {
+      const open = mobileMenu.style.transform === 'translateX(0%)';
+      if (open) {
+        gsap.to(mobileMenu, { xPercent: 100, duration: 0.5, ease: 'power3.inOut' });
+        gsap.to(mobileToggle.querySelectorAll('span'), { rotate: 0, y: 0, duration: 0.3 });
+      } else {
+        gsap.to(mobileMenu, { xPercent: 0, duration: 0.55, ease: 'power3.inOut' });
+        gsap.from('#mobileMenu a', { x: 40, opacity: 0, stagger: 0.06, duration: 0.4, ease: 'power2.out', delay: 0.1 });
+        const bars = mobileToggle.querySelectorAll('span');
+        gsap.to(bars[0], { y: 6,  rotate: 45,  duration: 0.25 });
+        gsap.to(bars[1], { opacity: 0,          duration: 0.25 });
+        gsap.to(bars[2], { y: -6, rotate: -45,  duration: 0.25 });
+      }
+      mobileMenu.style.transform = open ? 'translateX(100%)' : 'translateX(0%)';
+    });
+
     window.addEventListener("beforeunload",()=>{ScrollTrigger.getAll().forEach(t=>t.kill())});
   </script>
-</body>
+<style>.wa-float{position:fixed;bottom:28px;right:28px;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,.45);z-index:9998;text-decoration:none;transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .22s}.wa-float:hover{transform:scale(1.12);box-shadow:0 8px 32px rgba(37,211,102,.65)}.wa-float svg{display:block}</style>
+<a href="https://wa.me/919988725089?text=Hi%20Velumo%2C%20I%27m%20interested%20in%20your%20services." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with Velumo on WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="30" height="30"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a></body>
 </html>

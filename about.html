@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,6 +8,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://www.velumo.services/about.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Velumo">
+  <meta property="og:title" content="About Velumo | Strategy, Design, Engineering">
+  <meta property="og:description" content="Meet the Velumo team. Driven by strategy, design excellence, and clean engineering. Based in Ludhiana, serving clients across India and globally.">
+  <meta property="og:url" content="https://www.velumo.services/about.html">
+  <meta property="og:image" content="https://www.velumo.services/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@velumo">
+  <meta name="twitter:title" content="About Velumo | Strategy, Design, Engineering">
+  <meta name="twitter:description" content="Meet the Velumo team. Driven by strategy, design excellence, and clean engineering. Based in Ludhiana, serving clients across India and globally.">
+  <meta name="twitter:image" content="https://www.velumo.services/assets/img/og-image.png">
   <style>
     :root{--color-bg:#0A0A0A;--color-surface:#111111;--color-border:#1E1E1E;--color-accent:#7B5EA7;--color-accent2:#00D4AA;--color-text:#F0EEE8;--color-muted:#6B6B6B;--color-white:#fff}
     *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--color-bg);color:var(--color-text);font-family:Inter,sans-serif;line-height:1.75;font-size:clamp(15px,1.5vw,17px)}
@@ -21,19 +37,90 @@
     .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:60% 40%;gap:40px;align-items:center}
     .geo{border:1px solid var(--color-border);height:380px;background:var(--color-surface);position:relative}.geo svg{width:100%;height:100%}
     .timeline{display:grid;gap:24px}.milestone{display:grid;grid-template-columns:1fr 60px 1fr;gap:18px;align-items:center}
-    .dot{width:16px;height:16px;border:2px solid var(--color-accent2);border-radius:50%;margin:0 auto;background:var(--color-bg)}.line{width:2px;height:100%;background:var(--color-border);margin:0 auto}
+    .dot{width:16px;height:16px;border:2px solid var(--color-accent2);border-radius:50%;margin:0 auto;background:var(--color-bg)}
     .card{border:1px solid var(--color-border);background:var(--color-surface);padding:22px}
-    .team{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.avatar{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--color-accent),var(--color-accent2));font:700 20px Syne,sans-serif;margin-bottom:10px}
-    .values,.countries{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    /* ── TEAM ── */
+    .team{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .avatar{width:80px;height:80px;border-radius:50%;overflow:hidden;margin-bottom:14px;border:2px solid var(--color-border);background:linear-gradient(135deg,var(--color-accent),var(--color-accent2))}
+    .avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(100%) contrast(1.1);transition:filter .4s ease;display:block}
+    .team .card{transition:border-color .3s,transform .25s}.team .card:hover{border-color:var(--color-accent2);transform:translateY(-4px)}
+    .team .card:hover .avatar img{filter:grayscale(0%) contrast(1)}
+    .team h3{font-family:Syne,sans-serif;font-size:17px;margin-bottom:3px;letter-spacing:-.01em}
+    .team .role{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--color-accent2);margin-bottom:8px;font-weight:600}
+    .team .desc{font-size:14px;color:var(--color-muted);margin-bottom:12px;line-height:1.6}
+    .team a{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text);text-decoration:none;opacity:.5;transition:opacity .2s}.team a:hover{opacity:1}
+    .values{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
     .map{border:1px solid var(--color-border);background:var(--color-surface);padding:16px}.map svg{width:100%;height:auto}
     .site-footer{border-top:1px solid var(--color-border);padding:50px 0 18px}.f{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:16px}.f a,.f p{color:var(--color-muted);text-decoration:none;display:block;margin-bottom:6px}
     .b{margin-top:26px;border-top:1px solid var(--color-border);padding-top:10px;color:var(--color-muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+    .mobile-toggle, .mobile-menu { display: none; }
     @media(max-width:1024px){.hero-grid,.team,.f{grid-template-columns:1fr 1fr}.milestone{grid-template-columns:1fr}}
-    @media(max-width:768px){.nav-links,.cta{display:none}.hero-grid,.team,.values,.countries,.f{grid-template-columns:1fr}}
+    @media(max-width:768px){
+      .nav-links,.cta{display:none}
+      .hero-grid,.team,.values,.f{grid-template-columns:1fr}
+      .mobile-toggle {
+        display: grid;
+        width: 42px; height: 42px;
+        gap: 5px;
+        align-content: center;
+        justify-items: center;
+        background: transparent;
+        border: 1px solid var(--color-border);
+      }
+      .mobile-toggle span { width: 18px; height: 1px; background: var(--color-text); }
+      .mobile-menu {
+        position: fixed;
+        inset: 0;
+        background: rgba(10,10,10,0.98);
+        z-index: 1200;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        transform: translateX(100%);
+      }
+      .mobile-menu a {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(32px, 8vw, 56px);
+        letter-spacing: -0.03em;
+        color: var(--color-white, #fff);
+        text-decoration: none;
+      }
+    }
   </style>
 </head>
 <body>
-  <nav class="site-nav" id="nav"><div class="container nav-inner"><a class="wordmark n" href="index.html"><span style="display:block;font-size:8px;letter-spacing:.18em;font-family:Inter,sans-serif;font-weight:600;color:#6B6B6B;text-transform:uppercase;line-height:1;margin-bottom:3px">THE JUNIOR ENGINEER'S</span>Velumo</a><ul class="nav-links"><li><a class="n" href="index.html">Home</a></li><li><a class="n" href="about.html">About</a></li><li><a class="n" href="services.html">Services</a></li><li><a class="n" href="portfolio.html">Work</a></li><li><a class="n" href="pricing.html">Pricing</a></li><li><a class="n" href="blog.html">Blog</a></li><li><a class="n" href="contact.html">Contact</a></li></ul><div class="cta"><a class="btn n" href="contact.html">Start a Project →</a></div></div></nav>
+  <nav class="site-nav" id="nav">
+    <div class="container nav-inner">
+      <a class="wordmark n" href="index.html"><span style="display:block;font-size:8px;letter-spacing:.18em;font-family:Inter,sans-serif;font-weight:600;color:#6B6B6B;text-transform:uppercase;line-height:1;margin-bottom:3px">THE JUNIOR ENGINEER'S</span>Velumo</a>
+      <ul class="nav-links">
+        <li><a class="n" href="index.html">Home</a></li>
+        <li><a class="n" href="about.html">About</a></li>
+        <li><a class="n" href="services.html">Services</a></li>
+        <li><a class="n" href="portfolio.html">Work</a></li>
+        <li><a class="n" href="pricing.html">Pricing</a></li>
+        <li><a class="n" href="blog.html">Blog</a></li>
+        <li><a class="n" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="cta">
+        <a class="btn n" href="contact.html">Start a Project →</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
   <header class="hero">
     <div class="container hero-grid">
       <div><p class="k reveal">About</p><h1 class="title reveal">We Are Velumo.<br>Not Just Another Agency.</h1><p class="reveal">We are strategists, designers, and developers obsessed with helping ambitious companies ship better digital experiences faster.</p></div>
@@ -42,7 +129,9 @@
       </div>
     </div>
   </header>
+
   <main>
+    <!-- Journey Timeline -->
     <section class="section"><div class="container"><p class="k reveal">Journey</p><h2 class="title reveal">From local beginnings to global execution.</h2>
       <div class="timeline">
         <article class="milestone reveal"><div class="card"><h3>2020</h3><p>Started as a web-first studio helping Punjab-based SMEs launch online.</p></div><div><div class="dot"></div></div><div></div></article>
@@ -54,29 +143,90 @@
       </div>
     </div></section>
 
+    <!-- Team Section -->
     <section class="section"><div class="container"><p class="k reveal">Team</p><h2 class="title reveal">The People Behind Your Growth</h2>
       <div class="team">
-        <article class="card reveal"><div class="avatar">AK</div><h3>Aman Khurana</h3><p>Founder & Strategy Lead</p><p>Connects business goals with product direction.</p><a href="#">LinkedIn ↗</a></article>
-        <article class="card reveal"><div class="avatar">RS</div><h3>Riya Sharma</h3><p>Creative Director</p><p>Shapes brand systems and premium digital aesthetics.</p><a href="#">LinkedIn ↗</a></article>
-        <article class="card reveal"><div class="avatar">VK</div><h3>Vikram Kohli</h3><p>Engineering Lead</p><p>Builds robust architecture across web and automation.</p><a href="#">LinkedIn ↗</a></article>
-        <article class="card reveal"><div class="avatar">NM</div><h3>Neha Malhotra</h3><p>Client Success Manager</p><p>Ensures every engagement moves with speed and clarity.</p><a href="#">LinkedIn ↗</a></article>
+        <article class="card reveal">
+          <div class="avatar">
+            <img src="images/team-amit.jpg" alt="Amit Kumar — Founder & CEO, Velumo">
+          </div>
+          <h3>Amit Kumar</h3>
+          <p class="role">Founder &amp; CEO</p>
+          <p class="desc">Connects business goals with product direction. Drives strategy across every client engagement.</p>
+          <a href="#" aria-label="Amit Kumar on LinkedIn">LinkedIn ↗</a>
+        </article>
+        <article class="card reveal">
+          <div class="avatar">
+            <img src="images/team-priya.png" alt="Priya Sharma — Creative Director, Velumo">
+          </div>
+          <h3>Priya Sharma</h3>
+          <p class="role">Creative Director</p>
+          <p class="desc">Shapes brand systems and premium digital aesthetics that make businesses stand out.</p>
+          <a href="#" aria-label="Priya Sharma on LinkedIn">LinkedIn ↗</a>
+        </article>
+        <article class="card reveal">
+          <div class="avatar">
+            <img src="images/team-rohan.png" alt="Rohan Verma — Engineering Lead, Velumo">
+          </div>
+          <h3>Rohan Verma</h3>
+          <p class="role">Engineering Lead</p>
+          <p class="desc">Builds robust architecture across web, AI integrations, and automation systems.</p>
+          <a href="#" aria-label="Rohan Verma on LinkedIn">LinkedIn ↗</a>
+        </article>
+        <article class="card reveal">
+          <div class="avatar">
+            <img src="images/team-sara.png" alt="Sara Kapoor — Client Success, Velumo">
+          </div>
+          <h3>Sara Kapoor</h3>
+          <p class="role">Client Success</p>
+          <p class="desc">Ensures every engagement moves with speed, clarity, and zero surprises.</p>
+          <a href="#" aria-label="Sara Kapoor on LinkedIn">LinkedIn ↗</a>
+        </article>
       </div>
     </div></section>
 
+    <!-- Values -->
     <section class="section"><div class="container values"><article class="card reveal"><h3>Transparency</h3><p>Clear scopes, clear communication, no hidden surprises.</p></article><article class="card reveal"><h3>Speed</h3><p>Fast iterations without compromising craft or reliability.</p></article><article class="card reveal"><h3>Craftsmanship</h3><p>Every pixel and interaction serves a strategic purpose.</p></article><article class="card reveal"><h3>Partnership</h3><p>We operate like an extension of your internal team.</p></article></div></section>
+
+    <!-- Global Map -->
     <section class="section"><div class="container"><p class="k reveal">Global Clients</p><h2 class="title reveal">Countries We Serve</h2><div class="map reveal">
       <svg viewBox="0 0 900 420"><rect width="900" height="420" fill="#111"/><path d="M142 200h620" stroke="#1E1E1E"/><circle cx="560" cy="230" r="6" fill="#00D4AA"/><circle cx="190" cy="170" r="6" fill="#7B5EA7"/><circle cx="230" cy="150" r="6" fill="#7B5EA7"/><circle cx="280" cy="140" r="6" fill="#7B5EA7"/><circle cx="640" cy="180" r="6" fill="#00D4AA"/><text x="548" y="252" fill="#F0EEE8" font-size="14">India</text><text x="165" y="190" fill="#F0EEE8" font-size="14">US</text><text x="218" y="170" fill="#F0EEE8" font-size="14">Canada</text><text x="265" y="158" fill="#F0EEE8" font-size="14">UK</text><text x="620" y="198" fill="#F0EEE8" font-size="14">UAE</text></svg>
     </div></div></section>
   </main>
-  <footer class="site-footer"><div class="container"><div class="f"><div><h4>Velumo<span style="display:block;font-size:8px;letter-spacing:.18em;font-family:Inter,sans-serif;font-weight:600;color:#6B6B6B;text-transform:uppercase;line-height:1;margin-top:3px">THE JUNIOR ENGINEER'S</span></h4><p>Built for ambitious businesses.</p></div><div><h4>Company</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="blog.html">Blog</a><a href="#">Careers</a></div><div><h4>Services</h4><a href="services.html">Web Design</a><a href="ai-solutions.html">AI Solutions</a><a href="services.html">Automation</a><a href="services.html">App Dev</a><a href="services.html">Branding</a></div><div><h4>Contact</h4><a href="mailto:thejuniorengineerss@gmail.com">thejuniorengineerss@gmail.com</a><a href="tel:+919988725089">+91 9988725089</a><p>Ludhiana, India</p></div></div><div class="b"><p>© 2025 Velumo. Crafted with precision in India.</p><p>Privacy Policy · Terms · Sitemap</p></div></div></footer>
+
+  <footer class="site-footer"><div class="container"><div class="f"><div><h4>Velumo<span style="display:block;font-size:8px;letter-spacing:.18em;font-family:Inter,sans-serif;font-weight:600;color:#6B6B6B;text-transform:uppercase;line-height:1;margin-top:3px">THE JUNIOR ENGINEER'S</span></h4><p>Built for ambitious businesses.</p></div><div><h4>Company</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="blog.html">Blog</a><a href="#">Careers</a></div><div><h4>Services</h4><a href="services.html">Web Design</a><a href="ai-solutions.html">AI Solutions</a><a href="services.html">Automation</a><a href="services.html">App Dev</a><a href="services.html">Branding</a></div><div><h4>Contact</h4><a href="mailto:contact@velumo.services">contact@velumo.services</a><a href="tel:+919988725089">+91 9988725089</a><p>Ludhiana, India</p></div></div><div class="b"><p>© 2026 Velumo. Crafted with precision in India.</p><p>Privacy Policy · Terms · Sitemap</p></div></div></footer>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
   <script>
-    gsap.registerPlugin(ScrollTrigger,TextPlugin);
+    gsap.registerPlugin(ScrollTrigger);
     window.addEventListener("load",()=>{gsap.from(".n",{y:-20,opacity:0,stagger:.08,duration:.6});gsap.utils.toArray(".reveal").forEach(el=>gsap.from(el,{scrollTrigger:{trigger:el,start:"top 85%",toggleActions:"play none none reverse"},y:50,opacity:0,duration:.9,ease:"power2.out"}));});
     window.addEventListener("scroll",()=>{document.getElementById("nav").classList.toggle("s",window.scrollY>80)});
-    window.addEventListener("beforeunload",()=>{ScrollTrigger.getAll().forEach(t=>t.kill())});
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu   = document.getElementById('mobileMenu');
+    mobileToggle.addEventListener('click', () => {
+      const open = mobileMenu.style.transform === 'translateX(0%)';
+      if (open) {
+        gsap.to(mobileMenu, { xPercent: 100, duration: 0.5, ease: 'power3.inOut' });
+        gsap.to(mobileToggle.querySelectorAll('span'), { rotate: 0, y: 0, duration: 0.3 });
+      } else {
+        gsap.to(mobileMenu, { xPercent: 0, duration: 0.55, ease: 'power3.inOut' });
+        gsap.from('#mobileMenu a', { x: 40, opacity: 0, stagger: 0.06, duration: 0.4, ease: 'power2.out', delay: 0.1 });
+        const bars = mobileToggle.querySelectorAll('span');
+        gsap.to(bars[0], { y: 6,  rotate: 45,  duration: 0.25 });
+        gsap.to(bars[1], { opacity: 0,          duration: 0.25 });
+        gsap.to(bars[2], { y: -6, rotate: -45,  duration: 0.25 });
+      }
+      mobileMenu.style.transform = open ? 'translateX(100%)' : 'translateX(0%)';
+    });
+
+    window.addEventListener("beforeunload", () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    });
   </script>
+  <style>.wa-float{position:fixed;bottom:28px;right:28px;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,.45);z-index:9998;text-decoration:none;transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .22s}.wa-float:hover{transform:scale(1.12);box-shadow:0 8px 32px rgba(37,211,102,.65)}.wa-float svg{display:block}</style>
+  <a href="https://wa.me/919988725089?text=Hi%20Velumo%2C%20I%27m%20interested%20in%20your%20services." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with Velumo on WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="30" height="30"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
 </body>
 </html>
