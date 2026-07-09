@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -207,14 +207,14 @@
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 0.98;
-      font-size: clamp(44px, 6vw, 88px);
+      font-size: clamp(36px, 8vw, 88px);
       margin-bottom: 20px;
       max-width: 18ch;
     }
     .page-hero p {
       max-width: 58ch;
       color: color-mix(in srgb, var(--color-text) 85%, var(--color-muted));
-      font-size: clamp(16px, 1.8vw, 19px);
+      font-size: clamp(15px, 1.8vw, 19px);
       line-height: 1.7;
     }
 
@@ -222,6 +222,9 @@
     .tools-section {
       padding: var(--section-pad) 0;
       border-top: 1px solid var(--color-border);
+    }
+    .tools-section + .tools-section {
+      padding-top: 0;
     }
 
     .tool-card {
@@ -241,7 +244,7 @@
     }
 
     .tool-info {
-      padding: clamp(36px, 5vw, 60px);
+      padding: clamp(28px, 5vw, 60px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -275,7 +278,7 @@
 
     .tool-info h2 {
       font-family: "Syne", sans-serif;
-      font-size: clamp(32px, 4vw, 52px);
+      font-size: clamp(28px, 4vw, 52px);
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1;
@@ -352,6 +355,15 @@
       border-left: 1px solid var(--color-border);
       position: relative;
       overflow: hidden;
+    }
+    .tool-visual.ext-visual {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(124,58,237,0.5), transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(0,212,170,0.2), transparent 50%),
+        linear-gradient(135deg, #0a0f1e, #0f1a2e, #080a0f);
+      border-left: none;
+      border-right: 1px solid var(--color-border);
+      order: -1;
     }
 
     /* Animated floating particles */
@@ -497,6 +509,79 @@
       white-space: nowrap;
     }
 
+    /* ── EXTENSION MOCKUP ── */
+    .ext-mockup {
+      width: 100%;
+      max-width: 300px;
+      border: 1px solid rgba(124,58,237,0.5);
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(10,10,20,0.95);
+      backdrop-filter: blur(12px);
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 70px rgba(124,109,250,0.3), 0 0 140px rgba(0,212,170,0.06);
+      font-size: 12px;
+    }
+    .ext-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      background: rgba(17,17,28,0.9);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .ext-brand { display: flex; align-items: center; gap: 8px; }
+    .ext-icon {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #7c6dfa, #a78bfa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      box-shadow: 0 0 10px rgba(124,109,250,0.4);
+    }
+    .ext-name { font-weight: 700; color: #fff; font-size: 12px; }
+    .ext-tag { font-size: 10px; color: #64748b; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 1px 7px; }
+    .ext-status { padding: 8px 14px; display: flex; align-items: center; gap: 8px; background: rgba(14,14,24,0.8); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .ext-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 6px #22c55e; animation: blink 2s ease-in-out infinite; flex-shrink: 0; }
+    .ext-status-txt { font-size: 10px; color: #94a3b8; }
+    .ext-body { padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+    .ext-field { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 8px 10px; }
+    .ext-field-lbl { font-size: 9px; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .ext-field-val { font-size: 11px; color: #e2e8f0; font-weight: 500; }
+    .ext-tones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+    .ext-tone { padding: 5px 4px; border-radius: 6px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); font-size: 9px; color: #64748b; text-align: center; }
+    .ext-tone.active { background: rgba(124,109,250,0.15); border-color: rgba(124,109,250,0.4); color: #a78bfa; }
+    .ext-reply-preview { background: rgba(124,109,250,0.06); border: 1px solid rgba(124,109,250,0.2); border-radius: 8px; padding: 10px; }
+    .ext-reply-lbl { font-size: 9px; color: #7c6dfa; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; display: flex; align-items: center; gap: 5px; }
+    .ext-typing-dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #7c6dfa; animation: typeDot 1.2s ease-in-out infinite; }
+    .ext-typing-dot:nth-child(2) { animation-delay: .2s; }
+    .ext-typing-dot:nth-child(3) { animation-delay: .4s; }
+    @keyframes typeDot { 0%,80%,100% { opacity: 0.2; transform: scale(0.7); } 40% { opacity: 1; transform: scale(1); } }
+    .ext-reply-text { font-size: 10px; color: #94a3b8; line-height: 1.6; }
+    .ext-footer { padding: 8px 14px 10px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.06); }
+    .ext-footer-lft { font-size: 9px; color: #475569; }
+    .ext-privacy { font-size: 9px; font-weight: 600; color: #22c55e; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); border-radius: 20px; padding: 2px 7px; }
+
+    /* Download button — blue accent for Chrome ext */
+    .btn-chrome {
+      background: #4285F4;
+      border: 1px solid #4285F4;
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 16px 32px;
+      border-radius: 10px;
+    }
+    .btn-chrome:hover {
+      box-shadow: 0 0 0 1px #4285F4, 0 0 28px rgba(66,133,244,0.5);
+      background: color-mix(in srgb, #4285F4 85%, white);
+      transform: translateY(-2px);
+    }
+    .btn-chrome:active { transform: translateY(0); }
+
     /* ── STATS BAR ── */
     .stats-bar {
       border-top: 1px solid var(--color-border);
@@ -517,7 +602,7 @@
     }
     .stat-num {
       font-family: "Syne", sans-serif;
-      font-size: clamp(28px, 4vw, 46px);
+      font-size: clamp(24px, 4vw, 46px);
       font-weight: 800;
       letter-spacing: -0.03em;
       color: var(--color-white);
@@ -541,7 +626,7 @@
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.02;
-      font-size: clamp(36px, 5vw, 64px);
+      font-size: clamp(30px, 5vw, 64px);
       margin-bottom: clamp(12px, 2vw, 20px);
     }
     .section-intro {
@@ -626,7 +711,7 @@
       border: 1px solid rgba(0,212,170,0.25);
       background: linear-gradient(135deg, rgba(0,212,170,0.04), rgba(123,94,167,0.06));
       border-radius: 4px;
-      padding: clamp(28px, 4vw, 48px);
+      padding: clamp(24px, 4vw, 48px);
       text-align: center;
     }
     .download-box-icon {
@@ -642,7 +727,7 @@
     }
     .download-box h3 {
       font-family: "Syne", sans-serif;
-      font-size: 28px;
+      font-size: clamp(22px, 3vw, 28px);
       font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 8px;
@@ -654,14 +739,14 @@
     }
     .download-box-meta {
       display: flex;
-      gap: 16px;
+      gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
       margin-bottom: 28px;
     }
     .download-box-tag {
-      font-size: 12px;
-      padding: 5px 12px;
+      font-size: 11px;
+      padding: 5px 10px;
       border: 1px solid var(--color-border);
       border-radius: 4px;
       color: var(--color-muted);
@@ -723,6 +808,7 @@
     @media (max-width: 1024px) {
       .tool-card { grid-template-columns: 1fr; }
       .tool-visual { min-height: 360px; border-left: none; border-top: 1px solid var(--color-border); }
+      .tool-visual.ext-visual { order: 0; border-right: none; border-top: none; border-bottom: 1px solid var(--color-border); }
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .steps-grid { grid-template-columns: 1fr 1fr; }
       .specs-grid { grid-template-columns: 1fr; }
@@ -752,14 +838,32 @@
         color: var(--color-white);
         text-decoration: none;
       }
-      .steps-grid, .footer-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
       .tool-features { grid-template-columns: 1fr; }
+      .tool-info { padding: 28px 20px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .tool-visual { min-height: 280px; padding: 24px 16px; }
+      .tool-visual.ext-visual { min-height: 260px; }
+      .app-mockup, .ext-mockup { max-width: 100%; }
+      .btn-download, .btn-chrome { width: 100%; justify-content: center; font-size: 14px; padding: 14px 20px; }
+      .tool-actions { flex-direction: column; align-items: stretch; }
+      .tool-actions .btn-ghost { text-align: center; justify-content: center; }
     }
     @media (max-width: 480px) {
-      .page-hero { padding-top: 100px; }
+      .page-hero { padding-top: 90px; }
       .stats-inner { grid-template-columns: 1fr 1fr; }
+      .stat-item { padding: 18px 12px; }
+      .stat-label { font-size: 10px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: clamp(26px, 7vw, 44px); }
+      .tool-meta { gap: 12px; }
+      .download-box-meta { gap: 6px; }
+      .download-box-tag { font-size: 10px; padding: 4px 8px; }
     }
-  </style>
+  .social-row{display:flex !important;gap:8px;margin-top:14px;align-items:center}.social-icon{display:inline-flex !important;align-items:center !important;justify-content:center !important;width:34px !important;height:34px !important;min-width:34px;border:1px solid var(--color-border);border-radius:8px;color:var(--color-muted);text-decoration:none;transition:color .2s,border-color .2s,transform .2s;flex-shrink:0;position:relative;margin-bottom:0 !important;background:transparent}.social-icon svg{width:16px;height:16px;flex-shrink:0}.social-icon:hover{color:var(--color-white) !important;border-color:var(--color-white);transform:translateY(-2px)}.social-icon--soon{opacity:.35;cursor:not-allowed;pointer-events:none}.soon-badge{position:absolute;top:-7px;right:-7px;background:var(--color-border);color:var(--color-muted);font-size:7px;font-weight:700;letter-spacing:.04em;padding:1px 4px;border-radius:3px;text-transform:uppercase;white-space:nowrap;line-height:1.2}
+</style>
 </head>
 <body>
   <div class="cursor-dot" id="dot"></div>
@@ -946,6 +1050,206 @@
       </div>
     </section>
 
+    <!-- ── TOOL CARD 2 — OLLAMA MAIL ── -->
+    <section class="tools-section" style="padding-top:0;border-top:none;">
+      <div class="container">
+        <div class="tool-card reveal" style="margin-top:0;border-top:none;">
+          <!-- Visual side — left on desktop for this card -->
+          <div class="tool-visual ext-visual">
+            <div class="ext-mockup">
+              <div class="ext-header">
+                <div class="ext-brand">
+                  <div class="ext-icon">✉</div>
+                  <div>
+                    <div class="ext-name">Ollama Mail</div>
+                    <div style="font-size:9px;color:#64748b;margin-top:1px">Local AI · No cloud</div>
+                  </div>
+                </div>
+                <div class="ext-tag">v1.2</div>
+              </div>
+              <div class="ext-status">
+                <div class="ext-dot"></div>
+                <div class="ext-status-txt">Connected to localhost:11434 · llama3.2</div>
+              </div>
+              <div class="ext-body">
+                <div class="ext-field">
+                  <div class="ext-field-lbl">Active Model</div>
+                  <div class="ext-field-val">llama3.2:latest ✓</div>
+                </div>
+                <div class="ext-field">
+                  <div class="ext-field-lbl">Reply Tone</div>
+                  <div class="ext-tones">
+                    <div class="ext-tone active">💼 Professional</div>
+                    <div class="ext-tone">😊 Friendly</div>
+                    <div class="ext-tone">⚡ Concise</div>
+                    <div class="ext-tone">📝 Detailed</div>
+                    <div class="ext-tone">💪 Assertive</div>
+                    <div class="ext-tone">✌ Casual</div>
+                  </div>
+                </div>
+                <div class="ext-reply-preview">
+                  <div class="ext-reply-lbl">
+                    AI Generating
+                    <span class="ext-typing-dot"></span>
+                    <span class="ext-typing-dot"></span>
+                    <span class="ext-typing-dot"></span>
+                  </div>
+                  <div class="ext-reply-text">Thank you for reaching out. I appreciate your message and would be happy to discuss the proposed collaboration further. Could we schedule a call at your earliest convenience?</div>
+                </div>
+              </div>
+              <div class="ext-footer">
+                <div class="ext-footer-lft">Powered by Ollama</div>
+                <div class="ext-privacy">100% Local</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Info side -->
+          <div class="tool-info">
+            <div>
+              <div class="tool-badge">Free Chrome Extension</div>
+              <h2>Ollama<span> Mail</span></h2>
+              <p>Write smart, AI-powered Gmail replies using your local Ollama model — completely private, zero cloud, zero subscription. Works right inside Gmail with a one-click button.</p>
+
+              <div class="tool-features">
+                <div class="feat"><div class="feat-dot"></div>One-click reply generation</div>
+                <div class="feat"><div class="feat-dot"></div>6 tone options (Pro, Friendly…)</div>
+                <div class="feat"><div class="feat-dot"></div>8 reply languages</div>
+                <div class="feat"><div class="feat-dot"></div>Auto-detects Ollama models</div>
+                <div class="feat"><div class="feat-dot"></div>100% local — no cloud API</div>
+                <div class="feat"><div class="feat-dot"></div>Works inside Gmail UI</div>
+                <div class="feat"><div class="feat-dot"></div>Zero data sent externally</div>
+                <div class="feat"><div class="feat-dot"></div>Open source &amp; MIT licensed</div>
+              </div>
+
+              <div class="tool-actions">
+                <a href="OllamaMail-v1.2-extension.zip" download="OllamaMail-v1.2-extension.zip" class="btn btn-chrome" id="install-ollama-mail">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  Download ZIP — Free
+                </a>
+                <a href="#ollama-mail-steps" class="btn btn-ghost">How to Install</a>
+              </div>
+            </div>
+
+            <div class="tool-meta">
+              <div class="tool-meta-item">
+                <span class="tool-meta-label">Version</span>
+                <span class="tool-meta-value">v1.2</span>
+              </div>
+              <div class="tool-meta-item">
+                <span class="tool-meta-label">Platform</span>
+                <span class="tool-meta-value">Chrome / Edge</span>
+              </div>
+              <div class="tool-meta-item">
+                <span class="tool-meta-label">License</span>
+                <span class="tool-meta-value">MIT / Free</span>
+              </div>
+              <div class="tool-meta-item">
+                <span class="tool-meta-label">Built by</span>
+                <span class="tool-meta-value">Velumo (amit_ai05)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HOW IT WORKS — OLLAMA MAIL ── -->
+    <section class="steps-section" id="ollama-mail-steps">
+      <div class="container">
+        <span class="kicker">Ollama Mail — How It Works</span>
+        <h2 class="section-title reveal">Gmail AI replies.<br/>No cloud, ever.</h2>
+        <p class="section-intro reveal">Install the Chrome extension, fire up Ollama locally, and click "AI Reply" inside any Gmail thread — that's all it takes.</p>
+        <div class="steps-grid">
+          <div class="step-card reveal">
+            <div class="step-num">01</div>
+            <h3>Install Ollama</h3>
+            <p>Download Ollama from ollama.com and pull any model you like — <code style="font-size:12px;background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:4px">ollama pull llama3.2</code> — runs entirely on your machine.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-num">02</div>
+            <h3>Load the Extension</h3>
+            <p>Download the zip, unpack it, then go to <strong>chrome://extensions → Load Unpacked</strong> and select the folder. The Ollama Mail icon appears in your toolbar instantly.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-num">03</div>
+            <h3>Reply in Gmail</h3>
+            <p>Open any email thread in Gmail. An <strong>"AI Reply"</strong> button will appear in the compose toolbar. Pick your tone, click, and your reply is generated — privately.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── YOUTUBE TUTORIAL — OLLAMA MAIL ── -->
+    <section class="steps-section" style="border-top:1px solid var(--color-border);">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center;" class="yt-grid">
+          <!-- Left: Text -->
+          <div class="reveal">
+            <span class="kicker">Video Tutorial</span>
+            <h2 class="section-title" style="margin-bottom:16px;">Watch it in<br/><span style="color:var(--color-accent2)">action.</span></h2>
+            <p style="color:color-mix(in srgb,var(--color-text) 82%,var(--color-muted));line-height:1.75;margin-bottom:28px;">See exactly how to install Ollama Mail, load the Chrome extension, connect it to your local Ollama model, and generate your first AI-powered Gmail reply — in under 5 minutes.</p>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:color-mix(in srgb,var(--color-text) 80%,var(--color-muted));">
+                <div style="width:6px;height:6px;border-radius:50%;background:var(--color-accent2);flex-shrink:0;"></div>
+                Step-by-step installation walkthrough
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:color-mix(in srgb,var(--color-text) 80%,var(--color-muted));">
+                <div style="width:6px;height:6px;border-radius:50%;background:var(--color-accent2);flex-shrink:0;"></div>
+                Ollama setup + model download demo
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:color-mix(in srgb,var(--color-text) 80%,var(--color-muted));">
+                <div style="width:6px;height:6px;border-radius:50%;background:var(--color-accent2);flex-shrink:0;"></div>
+                Live Gmail reply generation in action
+              </div>
+            </div>
+            <div style="margin-top:28px;">
+              <a href="https://youtu.be/LU2dbHwJlNU?si=69vW5ULHejbKRKM3" target="_blank" rel="noopener" class="btn btn-download" id="yt-watch-btn" style="display:inline-flex;align-items:center;gap:10px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-2.74 12.87 12.87 0 0 0-8.07 0A4.83 4.83 0 0 1 4.41 6.69 49.91 49.91 0 0 0 4 12a49.91 49.91 0 0 0 .41 5.31 4.83 4.83 0 0 1 3.77 2.74 12.87 12.87 0 0 0 8.07 0 4.83 4.83 0 0 1 3.77-2.74A49.91 49.91 0 0 0 20 12a49.91 49.91 0 0 0-.41-5.31zM10 15V9l5 3z"/></svg>
+                Watch on YouTube
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: YouTube Thumbnail Mockup -->
+          <div class="reveal" style="position:relative;">
+            <a href="https://youtu.be/LU2dbHwJlNU?si=69vW5ULHejbKRKM3" target="_blank" rel="noopener" id="yt-thumb-link" style="display:block;position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--color-border);aspect-ratio:16/9;background:linear-gradient(135deg,#0f0c1e,#1a1040,#0a0a0f);text-decoration:none;transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,212,170,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow='';">
+              <!-- Background grid -->
+              <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(0,212,170,0.1) 1px,transparent 1px);background-size:24px 24px;opacity:0.4;"></div>
+              <!-- Glow -->
+              <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(124,58,237,0.25),transparent 70%);"></div>
+              <!-- Play button -->
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;">
+                <div style="width:68px;height:68px;border-radius:50%;background:rgba(255,0,0,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(255,0,0,0.4);transition:transform .2s;">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <div style="text-align:center;">
+                  <div style="font-family:Syne,sans-serif;font-weight:800;font-size:clamp(15px,2vw,18px);color:#fff;letter-spacing:-0.02em;">Ollama Mail — Full Tutorial</div>
+                  <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:5px;">The Junior Engineer · Watch Now</div>
+                </div>
+              </div>
+              <!-- YouTube badge -->
+              <div style="position:absolute;top:12px;right:12px;background:rgba(255,0,0,0.9);border-radius:6px;padding:4px 10px;display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#fff;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-2.74 12.87 12.87 0 0 0-8.07 0A4.83 4.83 0 0 1 4.41 6.69 49.91 49.91 0 0 0 4 12a49.91 49.91 0 0 0 .41 5.31 4.83 4.83 0 0 1 3.77 2.74 12.87 12.87 0 0 0 8.07 0 4.83 4.83 0 0 1 3.77-2.74A49.91 49.91 0 0 0 20 12a49.91 49.91 0 0 0-.41-5.31zM10 15V9l5 3z"/></svg>
+                YouTube
+              </div>
+              <!-- Duration badge -->
+              <div style="position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,0.7);border-radius:4px;padding:2px 8px;font-size:11px;font-weight:600;color:#fff;">5:00</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        @media (max-width: 768px) {
+          .yt-grid { grid-template-columns: 1fr !important; }
+        }
+      .social-row{display:flex !important;gap:8px;margin-top:14px;align-items:center}.social-icon{display:inline-flex !important;align-items:center !important;justify-content:center !important;width:34px !important;height:34px !important;min-width:34px;border:1px solid var(--color-border);border-radius:8px;color:var(--color-muted);text-decoration:none;transition:color .2s,border-color .2s,transform .2s;flex-shrink:0;position:relative;margin-bottom:0 !important;background:transparent}.social-icon svg{width:16px;height:16px;flex-shrink:0}.social-icon:hover{color:var(--color-white) !important;border-color:var(--color-white);transform:translateY(-2px)}.social-icon--soon{opacity:.35;cursor:not-allowed;pointer-events:none}.soon-badge{position:absolute;top:-7px;right:-7px;background:var(--color-border);color:var(--color-muted);font-size:7px;font-weight:700;letter-spacing:.04em;padding:1px 4px;border-radius:3px;text-transform:uppercase;white-space:nowrap;line-height:1.2}
+</style>
+    </section>
+
     <!-- ── HOW IT WORKS ── -->
     <section class="steps-section">
       <div class="container">
@@ -1042,7 +1346,14 @@
         <div class="footer-col">
           <h4>Velumo<span style="display:block;font-size:8px;letter-spacing:.18em;font-family:Inter,sans-serif;font-weight:600;color:#6B6B6B;text-transform:uppercase;line-height:1;margin-top:3px">THE JUNIOR ENGINEER'S</span></h4>
           <p>Digital systems for ambitious businesses.</p>
+          <div class="social-row">
+            <a href="https://www.instagram.com/velumo_services/" target="_blank" rel="noopener" class="social-icon" title="Instagram @velumo_services" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@thejuniorengineer2308" target="_blank" rel="noopener" class="social-icon" title="YouTube @thejuniorengineer2308" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.linkedin.com/company/velumoservices" target="_blank" rel="noopener" class="social-icon" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <span class="social-icon social-icon--soon" title="X / Twitter — coming soon" aria-label="X coming soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L2.178 2.25h6.994l4.265 5.638L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span class="soon-badge">Soon</span></span>
+          </div>
         </div>
+
         <div class="footer-col">
           <h4>Company</h4>
           <a href="about.html">About</a>
@@ -1052,7 +1363,8 @@
         </div>
         <div class="footer-col">
           <h4>Free Tools</h4>
-          <a href="free-tools.html">StorageSense</a>
+          <a href="free-tools.html#download-storagesense">StorageSense</a>
+          <a href="free-tools.html#install-ollama-mail">Ollama Mail</a>
           <a href="free-tools.html">All Tools</a>
         </div>
         <div class="footer-col">
